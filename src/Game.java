@@ -6,9 +6,9 @@ import java.awt.event.ActionListener;
 public class Game {
     JFrame frame = new JFrame();
     JPanel title_panel = new JPanel();
-    JPanel buttons_panel = new JPanel();
+    static JPanel buttons_panel = new JPanel();
     static JLabel textfield = new JLabel();
-    JButton[] buttons = new JButton[64];
+    static JButton[] buttons = new JButton[64];
     int randomButton = ThreadLocalRandom.current().nextInt(0, 63 + 1);
 
     int randomNum1 = ThreadLocalRandom.current().nextInt(0, 255 + 1);
@@ -24,6 +24,9 @@ public class Game {
     }
     public static void gameOver(){
         textfield.setText("Game Over. Your score was " + score);
+        for(int i = 0; i < 64 ; i++){
+            buttons[i].setVisible(false);
+        }
     }
     Game(){
 
