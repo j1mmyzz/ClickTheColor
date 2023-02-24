@@ -24,9 +24,7 @@ public class Game {
     }
     public static void gameOver(){
         textfield.setText("Game Over. Your score was " + score);
-        for(int i = 0; i < 64 ; i++){
-            buttons[i].setVisible(false);
-        }
+        buttons_panel.setVisible(false);
     }
     Game(){
 
