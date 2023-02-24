@@ -3,7 +3,7 @@ import java.awt.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-public class Game /*implements ActionListener*/ {
+public class Game {
     JFrame frame = new JFrame();
     JPanel title_panel = new JPanel();
     JPanel buttons_panel = new JPanel();
@@ -14,10 +14,22 @@ public class Game /*implements ActionListener*/ {
     int randomNum1 = ThreadLocalRandom.current().nextInt(0, 255 + 1);
     int randomNum2 = ThreadLocalRandom.current().nextInt(0, 255 + 1);
     int randomNum3 = ThreadLocalRandom.current().nextInt(0, 255 + 1);
+    int rand1 = randomNum1 + 20;
+    int rand2 = randomNum2 + 20;
+    int rand3 = randomNum3 + 20;
     int score = 0;
 
 
     Game(){
+        if(rand1>255){
+            rand1-=40;
+        }
+        if(rand2>255){
+            rand2-=40;
+        }
+        if(rand3>255){
+            rand3-=40;
+        }
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(750,800);
         frame.getContentPane().setBackground(new Color(50,50,50));
@@ -61,7 +73,7 @@ public class Game /*implements ActionListener*/ {
                 }
             });
         }
-        buttons[randomButton].setBackground(new Color(0,0,0));
+        buttons[randomButton].setBackground(new Color(rand1,rand2,rand3));
 
     }
     public void newColor(){
@@ -69,6 +81,18 @@ public class Game /*implements ActionListener*/ {
             int one = ThreadLocalRandom.current().nextInt(0, 255 + 1);
             int two = ThreadLocalRandom.current().nextInt(0, 255 + 1);
             int three = ThreadLocalRandom.current().nextInt(0, 255 + 1);
+            int random1 = one + 20;
+            int random2 = two + 20;
+            int random3 = three + 20;
+            if(random1>255){
+                random1-=40;
+            }
+            if(random2>255){
+                random2-=40;
+            }
+            if(random3>255){
+                random3-=40;
+            }
 
             for(int i = 0; i < 64 ; i++){
 
@@ -81,7 +105,7 @@ public class Game /*implements ActionListener*/ {
 
             }
             randomButton = ThreadLocalRandom.current().nextInt(0, 63 + 1);
-            buttons[randomButton].setBackground(new Color(0,0,0));
+            buttons[randomButton].setBackground(new Color(random1,random2,random3));
 
     }
 
