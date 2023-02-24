@@ -1,5 +1,5 @@
 public class Timer implements Runnable{
-    public static int minute = 5;
+    public static int minute = 60;
 
     @Override
     public void run() {
