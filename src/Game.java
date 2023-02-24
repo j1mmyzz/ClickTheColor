@@ -25,7 +25,7 @@ public class Game /*implements ActionListener*/ {
         frame.setVisible(true);
         textfield.setBackground(new Color(25,25,25));
         textfield.setForeground(Color.WHITE);
-        textfield.setFont(new Font("Ink Free",Font.BOLD,75));
+        textfield.setFont(new Font("Arial",Font.BOLD,75));
         textfield.setHorizontalAlignment(JLabel.CENTER);
         //score
         textfield.setText("Score = " + score);
