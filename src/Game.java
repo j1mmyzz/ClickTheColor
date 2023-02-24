@@ -7,7 +7,7 @@ public class Game {
     JFrame frame = new JFrame();
     JPanel title_panel = new JPanel();
     JPanel buttons_panel = new JPanel();
-    JLabel textfield = new JLabel();
+    static JLabel textfield = new JLabel();
     JButton[] buttons = new JButton[64];
     int randomButton = ThreadLocalRandom.current().nextInt(0, 63 + 1);
 
@@ -17,27 +17,19 @@ public class Game {
     int rand1 = randomNum1 + 20;
     int rand2 = randomNum2 + 20;
     int rand3 = randomNum3 + 20;
-    int score = 0;
+    static int score = 0;
 
-
-//    public void timer() {
-//        for(int i = minute; i>=0; i--){
-//            try {
-//                Thread.sleep(1000);
-//            } catch (InterruptedException e) {
-//                throw new RuntimeException(e);
-//            }
-//            minute--;
-//        }
-//    }
-
+    public static void setScore(){
+        textfield.setText("Score = " + score + " Timer = " + Timer.minute);
+    }
+    public static void gameOver(){
+        textfield.setText("Game Over. Your score was " + score);
+    }
     Game(){
+
         Timer minuteTime = new Timer();
         Thread myThread = new Thread(minuteTime);
         myThread.start();
-
-
-
         if(rand1>255){
             rand1-=40;
         }
@@ -74,7 +66,6 @@ public class Game {
             buttons_panel.add(buttons[i]);
             buttons[i].setFont(new Font("Arial",Font.PLAIN,120));
             buttons[i].setFocusPainted(false);
-
             buttons[i].addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -91,15 +82,8 @@ public class Game {
             });
         }
         buttons[randomButton].setBackground(new Color(rand1,rand2,rand3));
-
-
-
-
-
-
     }
     public void newColor(){
-
             int one = ThreadLocalRandom.current().nextInt(0, 255 + 1);
             int two = ThreadLocalRandom.current().nextInt(0, 255 + 1);
             int three = ThreadLocalRandom.current().nextInt(0, 255 + 1);
@@ -130,6 +114,4 @@ public class Game {
             buttons[randomButton].setBackground(new Color(random1,random2,random3));
 
     }
-
-
 }
