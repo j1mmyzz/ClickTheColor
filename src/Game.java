@@ -54,6 +54,10 @@ public class Game /*implements ActionListener*/ {
                         textfield.setText("Score = " + score);
                         newColor();
                     }
+                    else{
+                        score--;
+                        textfield.setText("Score = " + score);
+                    }
                 }
             });
         }
