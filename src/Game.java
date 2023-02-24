@@ -20,7 +20,24 @@ public class Game {
     int score = 0;
 
 
+//    public void timer() {
+//        for(int i = minute; i>=0; i--){
+//            try {
+//                Thread.sleep(1000);
+//            } catch (InterruptedException e) {
+//                throw new RuntimeException(e);
+//            }
+//            minute--;
+//        }
+//    }
+
     Game(){
+        Timer minuteTime = new Timer();
+        Thread myThread = new Thread(minuteTime);
+        myThread.start();
+
+
+
         if(rand1>255){
             rand1-=40;
         }
@@ -37,10 +54,10 @@ public class Game {
         frame.setVisible(true);
         textfield.setBackground(new Color(25,25,25));
         textfield.setForeground(Color.WHITE);
-        textfield.setFont(new Font("Arial",Font.BOLD,75));
+        textfield.setFont(new Font("Arial",Font.BOLD,50));
         textfield.setHorizontalAlignment(JLabel.CENTER);
         //score
-        textfield.setText("Score = " + score);
+        textfield.setText("Score = " + score + " Timer = " + Timer.minute);
         textfield.setOpaque(true);
         title_panel.setLayout(new BorderLayout());
         title_panel.setBounds(0,0,750,100);
@@ -63,17 +80,22 @@ public class Game {
                 public void actionPerformed(ActionEvent e) {
                     if(buttons[randomButton]==e.getSource()) {
                         score++;
-                        textfield.setText("Score = " + score);
+                        textfield.setText("Score = " + score + " Timer = " + Timer.minute);
                         newColor();
                     }
                     else{
                         score--;
-                        textfield.setText("Score = " + score);
+                        textfield.setText("Score = " + score + " Timer = " + Timer.minute);
                     }
                 }
             });
         }
         buttons[randomButton].setBackground(new Color(rand1,rand2,rand3));
+
+
+
+
+
 
     }
     public void newColor(){
