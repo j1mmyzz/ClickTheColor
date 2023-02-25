@@ -53,7 +53,7 @@ public class Game {
         textfield.setOpaque(true);
         title_panel.setLayout(new BorderLayout());
         title_panel.setBounds(0,0,750,100);
-        buttons_panel.setLayout(new GridLayout(8,8));
+        buttons_panel.setLayout(new GridLayout(8,8,2,2));
         buttons_panel.setBackground(Color.black);
         title_panel.add(textfield);
         frame.add(title_panel, BorderLayout.NORTH);
